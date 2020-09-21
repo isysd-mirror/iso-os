@@ -1,0 +1,32 @@
+{
+  "name": "iso-os",
+  "version": "0.1.0",
+  "description": "isomorphic runtime os utility.",
+  "main": "os.node.js",
+  "module": "os.js",
+  "scripts": {
+    "test": "iso-test ./test.js",
+    "preinstall": "gpm -n .. -t .. -u https -d 1 -i .",
+    "postinstall": "node -e \"try { require('../esm/esm.js')(module); } catch (e) {require('child_process').execSync('npm i', {cwd: require('path').join('..', 'esm')})}\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/isysd-mirror/os.git"
+  },
+  "keywords": [
+    "isomorphic",
+    "guld",
+    "os"
+  ],
+  "author": "isysd",
+  "license": "MIT",
+  "dependencies": {
+    "esm": "../esm"
+  },
+  "peerDependencies": {
+    "gpm": "https://github.com/IonicaBizau/gpm.git"
+  },
+  "devDependencies": {
+    "iso-test": "../iso-test"
+  }
+}
